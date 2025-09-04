@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>iLearn — Learn Anything. Teach Everything.</title>
+  <meta name="description" content="iLearn is the 2-sided marketplace where anyone can teach and anyone can learn. Book trusted tutors, request demos, and learn over Google Meet.">
+  <meta name="theme-color" content="#0b0f19">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b0f19'/%3E%3Cpath d='M14 40l8-16 10 8 10-12 8 20' stroke='%23fff' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <!-- Open Graph -->
+  <meta property="og:title" content="iLearn — Learn Anything. Teach Everything.">
+  <meta property="og:description" content="A trusted marketplace to learn and teach. Book or request a demo, then learn on Google Meet.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ilearn.example/">
+  <meta property="og:image" content="https://ilearn.example/og.png">
+  
+  <style>
+    /* Minified, mobile-first, high contrast */
+    :root{--bg:#0b0f19;--fg:#0e111a;--text:#0b0f19;--muted:#5b677a;--ink:#0b0f19;--ink-on-dark:#e6ecf5;--brand:#4f8cff;--brand-2:#00c2a8;--accent:#ffd166;--danger:#ff5a7a;--ok:#16c47f;--surface:#ffffff;--shadow:0 8px 24px rgba(11,15,25,.12)}
+    *{box-sizing:border-box}html,body{height:100%}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;background:#f6f7fb;color:#1a2234;line-height:1.5}
+    a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
+    img,svg{max-width:100%;height:auto}
+    .container{width:min(1120px,92vw);margin:auto}
+    header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #e6eaf0}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem}
+    .brand{display:flex;gap:.6rem;align-items:center;font-weight:800;color:#0b0f19}
+    .brand svg{width:28px;height:28px}
+    .nav-links{display:flex;gap:.75rem;align-items:center}
+    .nav-links a{padding:.5rem .75rem;border-radius:8px;color:#0b0f19}
+    .nav-links .btn{color:#fff}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1rem;border-radius:12px;border:1px solid transparent;background:#0b0f19;color:#fff;font-weight:700;box-shadow:var(--shadow);transition:transform .06s ease,opacity .2s ease}
+    .btn:active{transform:translateY(1px)}
+    .btn.secondary{background:#fff;color:#0b0f19;border-color:#cfd7e3;box-shadow:none}
+    .btn.ghost{background:transparent;border-color:#cfd7e3;color:#0b0f19;box-shadow:none}
+    .btn.chip{padding:.4rem .7rem;border-radius:999px;font-weight:600}
+    .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+    .hero{padding:3.5rem 0;background:linear-gradient(180deg,#ffffff 0%,#f6f7fb 100%);border-bottom:1px solid #e6eaf0}
+    .hero-grid{display:grid;gap:2rem;align-items:center}
+    @media(min-width:900px){.hero-grid{grid-template-columns:1.15fr .85fr}}
+    h1{font-size:clamp(2rem,6vw,3.25rem);line-height:1.1;margin:.25rem 0 .75rem 0;color:#0b0f19}
+    h2{font-size:clamp(1.4rem,3.5vw,2rem);margin:0 0 .5rem 0;color:#0b0f19}
+    h3{font-size:1.125rem;margin:.25rem 0;color:#0b0f19}
+    p.lead{font-size:1.05rem;color:#334155;max-width:60ch}
+    .cta-row{display:flex;gap:.75rem;flex-wrap:wrap;margin:1rem 0}
+    .trust-bar{display:flex;gap:1rem;flex-wrap:wrap;color:#475569;font-weight:600;align-items:center}
+    .trust-item{display:inline-flex;gap:.5rem;align-items:center;padding:.4rem .6rem;border-radius:999px;background:#fff;border:1px solid #e6eaf0}
+    .card{background:#fff;border:1px solid #e6eaf0;border-radius:16px;padding:1rem;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease,opacity .4s ease}
+    .feature{padding:2.5rem 0}
+    .feature-grid{display:grid;gap:1.5rem;align-items:center}
+    @media(min-width:900px){.feature-grid{grid-template-columns:1fr 1fr}}
+    .alt{background:#fff}
+    .steps{display:grid;gap:1rem}
+    @media(min-width:720px){.steps{grid-template-columns:repeat(3,1fr)}}
+    .step{background:#fff;border:1px solid #e6eaf0;border-radius:14px;padding:1rem;transition:transform .25s ease,box-shadow .25s ease,opacity .4s ease}
+    .grid{display:grid;gap:1rem}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .muted{color:#64748b}
+    .chips{display:flex;gap:.5rem;flex-wrap:wrap}
+    .chip{display:inline-flex;align-items:center;gap:.35rem;padding:.4rem .65rem;border-radius:999px;background:#eef2f7;border:1px solid #d7dee9;color:#0b0f19;font-weight:600;cursor:pointer}
+    .chip.active{background:#0b0f19;color:#fff}
+    .search{display:flex;gap:.5rem}
+    .search input{flex:1;padding:.8rem 1rem;border-radius:12px;border:1px solid #cfd7e3}
+    .tutor-card{position:relative;display:flex;flex-direction:column;gap:.6rem;background:#fff;border:1px solid #e6eaf0;border-radius:16px;padding:1rem;transition:transform .25s ease,box-shadow .25s ease,opacity .4s ease}
+    .tutor-top{display:flex;gap:.8rem;align-items:center}
+    .avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#4f8cff,#00c2a8)}
+    .heart{position:absolute;top:.6rem;right:.6rem;background:#fff;border:1px solid #e6eaf0;border-radius:999px;padding:.35rem;cursor:pointer;transition:transform .15s ease}
+    .heart.active{background:#ffeff3;border-color:#ff8aa1}
+    .stars{color:#ffb703}
+    .price{font-weight:800}
+    .calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:.4rem}
+    .slot{padding:.6rem;border:1px solid #e6eaf0;border-radius:10px;text-align:center;cursor:pointer;background:#fff}
+    .slot.selected{outline:2px solid var(--brand);border-color:var(--brand)}
+    .tabs{display:flex;border:1px solid #e6eaf0;border-radius:12px;overflow:hidden}
+    .tab{flex:1;text-align:center;padding:.6rem 1rem;cursor:pointer;background:#fff}
+    .tab[aria-selected="true"]{background:#0b0f19;color:#fff}
+    form{display:grid;gap:.6rem}
+    input,textarea,select,button{font:inherit}
+    input,textarea,select{padding:.75rem .9rem;border:1px solid #cfd7e3;border-radius:12px}
+    .dashboards{display:grid;gap:1rem}
+    @media(min-width:900px){.dashboards{grid-template-columns:1fr 1fr}}
+    .footer{background:#0b0f19;color:#e6ecf5;padding:2rem 0;margin-top:2rem}
+    .footer a{color:#e6ecf5}
+    .footer-grid{display:grid;gap:1rem}
+    @media(min-width:720px){.footer-grid{grid-template-columns:1.5fr 1fr 1fr}}
+    .small{font-size:.92rem}
+    .kpi{display:flex;gap:1rem;flex-wrap:wrap;color:#0b0f19}
+    .kpi .card{display:flex;gap:.6rem;align-items:center}
+    .press svg{height:20px}
+    /* Hovers */
+    .card:hover,.step:hover,.tutor-card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(11,15,25,.14)}
+    .chip:hover{filter:brightness(0.98)}
+    .heart:hover{transform:scale(1.06)}
+    /* Reveal on scroll */
+    .reveal{opacity:0;transform:translateY(10px)}
+    .reveal.show{opacity:1;transform:none}
+    /* Focus states */
+    :focus-visible{outline:3px solid var(--brand);outline-offset:2px;border-radius:6px}
+    /* Reduced motion */
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <!-- SVG Icon Set -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="sr-only" aria-hidden="true" focusable="false">
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 17.3l-6.16 3.6 1.6-6.9L2 8.9l7-.6L12 2l3 6.3 7 .6-5.44 5.1 1.6 6.9z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3a2 2 0 012 2v3H2V6a2 2 0 012-2h3V2zm15 8v10a2 2 0 01-2 2H4a2 2 0 01-2-2V10h20z"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><path fill="currentColor" d="M14 10l6-4v12l-6-4v4H2V6h12v4z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21.6 6.4 20.2 5z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-7.4-4.9-9.6-8.2C.3 10.3 2.1 6 6.3 6c2 0 3.3 1 3.7 1.6.4-.6 1.7-1.6 3.7-1.6 4.2 0 6 4.3 4 6.8C19.4 16.1 12 21 12 21z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l8 4v6c0 5-3.4 9.7-8 10-4.6-.3-8-5-8-10V6l8-4z"/></symbol>
+  </svg>
+
+  <header class="site" role="banner">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="iLearn home">
+        <svg aria-hidden="true" viewBox="0 0 32 32">
+          <rect width="32" height="32" rx="8" fill="#0b0f19"/>
+          <text x="8" y="22" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="800" font-size="16" fill="#ffffff">iL</text>
+        </svg>
+        <span>iLearn</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#browse">Browse Tutors</a>
+        <a href="#teach">Become a Tutor</a>
+        <a href="#faq" class="small">FAQ</a>
+        <a class="btn secondary" href="#browse">Find a Tutor</a>
+        <a class="btn" href="#teach">Start Teaching</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container" role="main">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <h1 id="hero-title">You will get it. Learn any topic from passionated teachers</h1>
+          <p class="lead">iLearn is a demo‑first tutoring marketplace: You can Book instantly or try a 15‑minute demo, then learn on Google Meet with secure payments and verified reviews.</p>
+          <div class="cta-row" role="group" aria-label="Primary actions">
+            <a class="btn" href="#browse">Find a Tutor</a>
+            <a class="btn ghost" href="#teach">Become a Tutor</a>
+          </div>
+          <div class="trust-bar" aria-label="Trust features">
+            <span class="trust-item"><svg width="20" height="20" aria-hidden="true"><use href="#i-shield"/></svg> Secure Payments</span>
+            <span class="trust-item"><svg width="20" height="20" aria-hidden="true"><use href="#i-star"/></svg> Verified Reviews</span>
+            <span class="trust-item"><svg width="20" height="20" aria-hidden="true"><use href="#i-video"/></svg> Google Meet Sessions</span>
+          </div>
+        </div>
+        <div>
+          <div class="card" aria-label="Marketplace mockup">
+            <!-- Split illustration: student + tutor -->
+            <svg viewBox="0 0 640 420" role="img" aria-label="Student browsing tutors and tutor publishing a gig" style="width:100%;height:auto">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#4f8cff"/><stop offset="1" stop-color="#00c2a8"/></linearGradient>
+              </defs>
+              <rect x="0" y="0" width="640" height="420" rx="16" fill="#f7f9fc" stroke="#e6eaf0"/>
+              <g transform="translate(20,20)">
+                <rect width="290" height="380" rx="12" fill="#fff" stroke="#e6eaf0"/>
+                <rect x="12" y="12" width="266" height="40" rx="10" fill="#eef2f7"/>
+                <g transform="translate(12,64)">
+                  <rect width="266" height="90" rx="12" fill="#fff" stroke="#e6eaf0"/>
+                  <circle cx="26" cy="32" r="18" fill="url(#g1)"/>
+                  <rect x="56" y="16" width="140" height="10" rx="5" fill="#cfd7e3"/>
+                  <rect x="56" y="34" width="110" height="8" rx="4" fill="#dfe6f0"/>
+                  <g transform="translate(56,52)" fill="#ffb703">
+                    <rect width="12" height="12" rx="3"/><rect x="16" width="12" height="12" rx="3"/><rect x="32" width="12" height="12" rx="3"/><rect x="48" width="12" height="12" rx="3"/><rect x="64" width="12" height="12" rx="3"/>
+                  </g>
+                </g>
+                <g transform="translate(12,164)">
+                  <rect width="266" height="90" rx="12" fill="#fff" stroke="#e6eaf0"/>
+                  <circle cx="26" cy="32" r="18" fill="#a78bfa"/>
+                  <rect x="56" y="16" width="140" height="10" rx="5" fill="#cfd7e3"/>
+                  <rect x="56" y="34" width="90" height="8" rx="4" fill="#dfe6f0"/>
+                </g>
+              </g>
+              <g transform="translate(330,20)">
+                <rect width="290" height="200" rx="12" fill="#fff" stroke="#e6eaf0"/>
+                <rect x="16" y="16" width="170" height="12" rx="6" fill="#cfd7e3"/>
+                <rect x="16" y="40" width="220" height="10" rx="5" fill="#dfe6f0"/>
+                <rect x="16" y="60" width="140" height="10" rx="5" fill="#dfe6f0"/>
+                <rect x="16" y="90" width="120" height="34" rx="8" fill="#0b0f19"/>
+                <rect x="146" y="90" width="120" height="34" rx="8" fill="#fff" stroke="#cfd7e3"/>
+              </g>
+              <g transform="translate(330,240)">
+                <rect width="290" height="160" rx="12" fill="#fff" stroke="#e6eaf0"/>
+                <rect x="16" y="16" width="180" height="12" rx="6" fill="#cfd7e3"/>
+                <rect x="16" y="40" width="240" height="10" rx="5" fill="#dfe6f0"/>
+                <rect x="16" y="60" width="240" height="10" rx="5" fill="#dfe6f0"/>
+                <rect x="16" y="84" width="100" height="34" rx="8" fill="#00c2a8"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it Works (Learners) -->
+    <section class="feature" aria-labelledby="learners-title" id="learn">
+      <h2 id="learners-title">How iLearn Works for Learners</h2>
+      <p class="muted">Clear pricing. Real reviews. Refund policy for peace of mind.</p>
+      <div class="steps">
+        <div class="step">
+          <h3>1. Browse Gigs & Tutors</h3>
+          <p>Search by subject, price, rating, and language. Save your favorites.</p>
+        </div>
+        <div class="step">
+          <h3>2. Request a Demo or Book Direct</h3>
+          <p>Not sure yet? Try a free 15‑minute demo first. Slots fill fast.</p>
+        </div>
+        <div class="step">
+          <h3>3. Learn on Google Meet</h3>
+          <p>Join with a single link. Secure payments, no surprises.</p>
+        </div>
+      </div>
+      <div class="cta-row"><a class="btn" href="#browse">Start Learning</a></div>
+    </section>
+
+    <!-- How it Works (Instructors) -->
+    <section class="feature alt" aria-labelledby="instructors-title" id="teach">
+      <h2 id="instructors-title">How iLearn Works for Instructors</h2>
+      <p class="muted">Flexible schedule. Global students. Transparent fees.</p>
+      <div class="steps">
+        <div class="step">
+          <h3>1. Create a Gig</h3>
+          <p>Title, syllabus, and price. Stand out with a compelling intro.</p>
+        </div>
+        <div class="step">
+          <h3>2. Set Availability</h3>
+          <p>Sync your calendar and highlight demo slots to convert faster.</p>
+        </div>
+        <div class="step">
+          <h3>3. Teach on Meet & Get Paid</h3>
+          <p>Escrow protects both sides. Instant payouts after lessons.</p>
+        </div>
+      </div>
+      <div class="cta-row"><a class="btn" href="#signup">Start Teaching</a></div>
+    </section>
+
+    <!-- Alternating Feature #1 -->
+    <section class="feature" aria-labelledby="feat1">
+      <div class="feature-grid">
+        <div>
+          <div class="card">
+            <svg viewBox="0 0 640 360" role="img" aria-label="Calendar with available slots and Google Meet badge">
+              <rect x="0" y="0" width="640" height="360" rx="16" fill="#fff" stroke="#e6eaf0"/>
+              <rect x="20" y="20" width="600" height="40" rx="10" fill="#eef2f7"/>
+              <g transform="translate(20,80)">
+                <rect width="600" height="200" rx="12" fill="#f7f9fc" stroke="#e6eaf0"/>
+                <g transform="translate(16,16)">
+                  <rect width="80" height="40" rx="8" fill="#dfe6f0"/>
+                  <rect x="92" width="80" height="40" rx="8" fill="#dfe6f0"/>
+                  <rect x="184" width="80" height="40" rx="8" fill="#dfe6f0"/>
+                </g>
+                <g transform="translate(16,72)">
+                  <rect width="80" height="40" rx="8" fill="#00c2a8"/>
+                  <rect x="92" width="80" height="40" rx="8" fill="#cfd7e3"/>
+                  <rect x="184" width="80" height="40" rx="8" fill="#cfd7e3"/>
+                  <rect x="276" width="80" height="40" rx="8" fill="#00c2a8"/>
+                </g>
+              </g>
+              <g transform="translate(20,300)">
+                <rect width="140" height="40" rx="10" fill="#0b0f19"/>
+                <rect x="156" width="140" height="40" rx="10" fill="#fff" stroke="#cfd7e3"/>
+                <g transform="translate(480,0)"><rect width="120" height="40" rx="10" fill="#e8fff8" stroke="#00c2a8"/><text x="60" y="26" text-anchor="middle" font-family="system-ui" font-size="14" fill="#0b0f19">Google Meet</text></g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <h2 id="feat1">Direct Book or Request a Demo</h2>
+          <p class="lead">Not sure yet? Try a 15‑minute demo first. See teaching style, ask questions, and book with confidence.</p>
+          <ul class="muted">
+            <li>Instant booking for decisive learners</li>
+            <li>Demo lowers risk and increases match quality</li>
+            <li>Clear pricing and no‑show policy built in</li>
+          </ul>
+          <div class="cta-row"><a class="btn" href="#browse">Explore Available Slots</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alternating Feature #2 -->
+    <section class="feature alt" aria-labelledby="feat2">
+      <div class="feature-grid">
+        <div>
+          <h2 id="feat2">Smart Search & Filters</h2>
+          <p class="lead">Zero in on the right tutor with powerful filters: subject, price, rating, availability, and language.</p>
+          <div class="chips" aria-label="Filter chips demo">
+            <span class="chip">Math</span><span class="chip">Language</span><span class="chip">Under $30</span><span class="chip">⭐ 4.5+</span><span class="chip">Evenings</span>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <svg viewBox="0 0 640 360" role="img" aria-label="Tutor cards grid with ratings, price, and tags">
+              <rect x="0" y="0" width="640" height="360" rx="16" fill="#fff" stroke="#e6eaf0"/>
+              <g transform="translate(20,20)">
+                <rect width="280" height="140" rx="12" fill="#f7f9fc" stroke="#e6eaf0"/>
+                <circle cx="40" cy="50" r="20" fill="#4f8cff"/>
+                <rect x="70" y="36" width="120" height="10" rx="5" fill="#cfd7e3"/>
+                <g transform="translate(70,56)" fill="#ffb703"><rect width="12" height="12" rx="3"/><rect x="16" width="12" height="12" rx="3"/><rect x="32" width="12" height="12" rx="3"/><rect x="48" width="12" height="12" rx="3"/></g>
+                <rect x="20" y="96" width="80" height="24" rx="6" fill="#eef2f7"/>
+              </g>
+              <g transform="translate(340,20)">
+                <rect width="280" height="140" rx="12" fill="#f7f9fc" stroke="#e6eaf0"/>
+                <circle cx="40" cy="50" r="20" fill="#00c2a8"/>
+                <rect x="70" y="36" width="120" height="10" rx="5" fill="#cfd7e3"/>
+                <g transform="translate(70,56)" fill="#ffb703"><rect width="12" height="12" rx="3"/><rect x="16" width="12" height="12" rx="3"/><rect x="32" width="12" height="12" rx="3"/><rect x="48" width="12" height="12" rx="3"/></g>
+                <rect x="20" y="96" width="80" height="24" rx="6" fill="#eef2f7"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alternating Feature #3 -->
+    <section class="feature" aria-labelledby="feat3">
+      <div class="feature-grid">
+        <div>
+          <div class="card">
+            <svg viewBox="0 0 640 360" role="img" aria-label="Reviews stars and testimonial card">
+              <rect x="0" y="0" width="640" height="360" rx="16" fill="#fff" stroke="#e6eaf0"/>
+              <g transform="translate(20,20)" fill="#ffb703">
+                <rect width="24" height="24" rx="6"/><rect x="30" width="24" height="24" rx="6"/><rect x="60" width="24" height="24" rx="6"/><rect x="90" width="24" height="24" rx="6"/><rect x="120" width="24" height="24" rx="6"/>
+              </g>
+              <g transform="translate(20,80)">
+                <rect width="600" height="120" rx="12" fill="#f7f9fc" stroke="#e6eaf0"/>
+                <circle cx="50" cy="60" r="22" fill="#4f8cff"/>
+                <rect x="86" y="42" width="180" height="12" rx="6" fill="#cfd7e3"/>
+                <rect x="86" y="62" width="300" height="10" rx="5" fill="#dfe6f0"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <h2 id="feat3">Reviews, Safety & Trust</h2>
+          <p class="lead">Average rating 4.9 from thousands of lessons. Identity checks, escrow payments, and a fair no‑show policy keep everyone safe.</p>
+          <ul class="muted">
+            <li>Real testimonials and verified students</li>
+            <li>Secure checkout with dispute support</li>
+            <li>Transparent rules: be on time, communicate, and grow</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Browse Tutors -->
+    <section class="feature alt" id="browse" aria-labelledby="browse-title">
+      <h2 id="browse-title">Browse Tutors</h2>
+      <div class="search" role="search">
+        <label for="q" class="sr-only">Search tutors</label>
+        <input id="q" type="search" placeholder="Search by subject or name" aria-label="Search tutors">
+        <button class="btn secondary" id="clearSearch" type="button">Clear</button>
+      </div>
+      <div class="chips" style="margin:.75rem 0" aria-label="Filters">
+        <button class="chip chip-filter" data-filter="math" aria-pressed="false">Math</button>
+        <button class="chip chip-filter" data-filter="language" aria-pressed="false">Language</button>
+        <button class="chip chip-filter" data-filter="under30" aria-pressed="false">Under $30</button>
+        <button class="chip chip-filter" data-filter="rating45" aria-pressed="false">⭐ 4.5+</button>
+        <button class="chip chip-filter" data-filter="evening" aria-pressed="false">Evenings</button>
+      </div>
+      <div class="grid" id="tutorGrid" aria-live="polite">
+        <!-- Tutor cards -->
+        <article class="tutor-card" data-tags="math rating45 under30 evening" data-name="Alex Kim">
+          <button class="heart" aria-label="Favorite"><svg width="20" height="20"><use href="#i-heart"/></svg></button>
+          <div class="tutor-top">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <h3>Alex Kim</h3>
+              <div class="muted">Algebra • Calculus</div>
+            </div>
+          </div>
+          <div class="stars" aria-label="4.8 out of 5 stars">⭐⭐⭐⭐☆</div>
+          <div class="muted"><span class="price">$25</span>/lesson • EN • Remote</div>
+          <div class="cta-row">
+            <a class="btn" href="#schedule">Book Now</a>
+            <a class="btn secondary" href="#schedule">Request Demo</a>
+          </div>
+        </article>
+        <article class="tutor-card" data-tags="language rating45 evening" data-name="María López">
+          <button class="heart" aria-label="Favorite"><svg width="20" height="20"><use href="#i-heart"/></svg></button>
+          <div class="tutor-top">
+            <div class="avatar" style="background:linear-gradient(135deg,#ff8aa1,#ffd166)"></div>
+            <div>
+              <h3>María López</h3>
+              <div class="muted">Spanish • Conversation</div>
+            </div>
+          </div>
+          <div class="stars" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
+          <div class="muted"><span class="price">$35</span>/lesson • ES/EN • Remote</div>
+          <div class="cta-row">
+            <a class="btn" href="#schedule">Book Now</a>
+            <a class="btn secondary" href="#schedule">Request Demo</a>
+          </div>
+        </article>
+        <article class="tutor-card" data-tags="math under30" data-name="Samir Patel">
+          <button class="heart" aria-label="Favorite"><svg width="20" height="20"><use href="#i-heart"/></svg></button>
+          <div class="tutor-top">
+            <div class="avatar" style="background:linear-gradient(135deg,#a78bfa,#4f8cff)"></div>
+            <div>
+              <h3>Samir Patel</h3>
+              <div class="muted">Geometry • SAT</div>
+            </div>
+          </div>
+          <div class="stars" aria-label="4.6 out of 5 stars">⭐⭐⭐⭐☆</div>
+          <div class="muted"><span class="price">$28</span>/lesson • EN • Remote</div>
+          <div class="cta-row">
+            <a class="btn" href="#schedule">Book Now</a>
+            <a class="btn secondary" href="#schedule">Request Demo</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Scheduling Preview -->
+    <section class="feature" id="schedule" aria-labelledby="schedule-title">
+      <h2 id="schedule-title">Scheduling Preview</h2>
+      <div class="grid" style="grid-template-columns:1fr;gap:1rem">
+        <div class="card">
+          <div role="tablist" aria-label="Booking options" class="tabs" id="tablist">
+            <button role="tab" aria-selected="true" aria-controls="panel-book" id="tab-book" class="tab">Book Now</button>
+            <button role="tab" aria-selected="false" aria-controls="panel-demo" id="tab-demo" class="tab">Request Demo</button>
+          </div>
+          <div class="grid" style="grid-template-columns:1fr;gap:1rem;margin-top:1rem">
+            <div>
+              <div class="calendar" role="grid" aria-label="Select a time slot" id="slots">
+                <button class="slot" role="gridcell" aria-selected="false">Mon 10:00</button>
+                <button class="slot" role="gridcell" aria-selected="false">Mon 14:00</button>
+                <button class="slot" role="gridcell" aria-selected="false">Tue 09:00</button>
+                <button class="slot" role="gridcell" aria-selected="false">Tue 18:00</button>
+                <button class="slot" role="gridcell" aria-selected="false">Wed 11:00</button>
+                <button class="slot" role="gridcell" aria-selected="false">Thu 16:00</button>
+                <button class="slot" role="gridcell" aria-selected="false">Fri 13:00</button>
+              </div>
+            </div>
+            <div>
+              <div id="panel-book" role="tabpanel" aria-labelledby="tab-book">
+                <form id="form-book" novalidate>
+                  <input type="text" name="name" placeholder="Full name" aria-label="Full name" required>
+                  <input type="email" name="email" placeholder="Email" aria-label="Email" required>
+                  <input type="text" name="slot" id="slot-input" placeholder="Selected time slot" aria-label="Selected time slot" readonly>
+                  <button class="btn" type="submit"><svg width="18" height="18"><use href="#i-check"/></svg> Confirm Booking</button>
+                  <div class="muted small">Payment placeholder — secure escrow at checkout.</div>
+                </form>
+              </div>
+              <div id="panel-demo" role="tabpanel" aria-labelledby="tab-demo" hidden>
+                <form id="form-demo" novalidate>
+                  <input type="text" name="name" placeholder="Full name" aria-label="Full name" required>
+                  <input type="email" name="email" placeholder="Email" aria-label="Email" required>
+                  <input type="text" name="window" placeholder="Preferred time window" aria-label="Preferred time window">
+                  <textarea name="note" rows="3" placeholder="Short note (optional)" aria-label="Short note"></textarea>
+                  <button class="btn secondary" type="submit">Request Demo</button>
+                </form>
+              </div>
+              <div id="success" class="card" hidden aria-live="polite"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboards (Peek) -->
+    <section class="feature alt" aria-labelledby="dashboards-title">
+      <h2 id="dashboards-title">Dashboards (Peek)</h2>
+      <div class="dashboards">
+        <div class="card" aria-label="Learner dashboard preview">
+          <h3>Learner Dashboard</h3>
+          <svg viewBox="0 0 560 200" role="img" aria-label="Upcoming lessons, progress, saved tutors">
+            <rect width="560" height="200" rx="12" fill="#f7f9fc" stroke="#e6eaf0"/>
+            <rect x="20" y="20" width="200" height="60" rx="10" fill="#fff" stroke="#e6eaf0"/>
+            <rect x="240" y="20" width="300" height="14" rx="7" fill="#e6eaf0"/>
+            <rect x="240" y="40" width="220" height="14" rx="7" fill="#cfd7e3"/>
+            <g transform="translate(20,100)"><rect width="520" height="12" rx="6" fill="#e6eaf0"/><rect width="320" height="12" rx="6" fill="#4f8cff"/></g>
+          </svg>
+        </div>
+        <div class="card" aria-label="Instructor dashboard preview">
+          <h3>Instructor Dashboard</h3>
+          <svg viewBox="0 0 560 200" role="img" aria-label="Gigs list, availability, earnings sparkline">
+            <rect width="560" height="200" rx="12" fill="#f7f9fc" stroke="#e6eaf0"/>
+            <rect x="20" y="20" width="260" height="60" rx="10" fill="#fff" stroke="#e6eaf0"/>
+            <rect x="300" y="20" width="120" height="14" rx="7" fill="#e6eaf0"/>
+            <rect x="300" y="40" width="160" height="14" rx="7" fill="#cfd7e3"/>
+            <polyline points="20,160 60,150 100,165 140,140 180,155 220,130 260,145 300,120 340,135 380,110 420,125 460,100 500,115 540,90" fill="none" stroke="#00c2a8" stroke-width="3"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="feature" aria-labelledby="final-cta">
+      <h2 id="final-cta">Ready to Learn. Ready to Teach.</h2>
+      <p class="lead">Master new skills this month or turn your expertise into income. Join a community that learns together and earns together.</p>
+      <div class="cta-row">
+        <a class="btn" href="#browse">Find a Tutor</a>
+        <a class="btn secondary" href="#teach">Start Teaching</a>
+      </div>
+      <div class="kpi">
+        <div class="card"><svg width="20" height="20"><use href="#i-check"/></svg><strong>25k+</strong> users</div>
+        <div class="card"><svg width="20" height="20"><use href="#i-star"/></svg><strong>4.9</strong> avg rating</div>
+        <div class="card"><svg width="20" height="20"><use href="#i-shield"/></svg>Escrow protected</div>
+        <div class="card press" aria-label="Press logos"><svg viewBox="0 0 120 20" aria-hidden="true"><rect width="120" height="20" rx="4" fill="#e6eaf0"/></svg></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="feature alt" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Frequently Asked Questions</h2>
+      <div class="grid" style="grid-template-columns:1fr;gap:.5rem" id="faqList">
+        <!-- Accessible accordion -->
+        <div class="card">
+          <h3><button class="faq-btn" aria-expanded="false" aria-controls="faq1" id="q1">What are the fees?</button></h3>
+          <div id="faq1" role="region" aria-labelledby="q1" hidden>iLearn charges a small service fee per booking. No hidden costs.</div>
+        </div>
+        <div class="card">
+          <h3><button class="faq-btn" aria-expanded="false" aria-controls="faq2" id="q2">How do refunds work?</button></h3>
+          <div id="faq2" role="region" aria-labelledby="q2" hidden>If a lesson doesn’t happen or quality is not met, eligible refunds apply.</div>
+        </div>
+        <div class="card">
+          <h3><button class="faq-btn" aria-expanded="false" aria-controls="faq3" id="q3">Can I request a demo?</button></h3>
+          <div id="faq3" role="region" aria-labelledby="q3" hidden>Yes, most tutors offer a free 15‑minute demo to ensure a good fit.</div>
+        </div>
+        <div class="card">
+          <h3><button class="faq-btn" aria-expanded="false" aria-controls="faq4" id="q4">How do Google Meet links work?</button></h3>
+          <div id="faq4" role="region" aria-labelledby="q4" hidden>After booking, you’ll receive a single‑click Meet link for your session.</div>
+        </div>
+        <div class="card">
+          <h3><button class="faq-btn" aria-expanded="false" aria-controls="faq5" id="q5">Is my payment secure?</button></h3>
+          <div id="faq5" role="region" aria-labelledby="q5" hidden>Yes, funds are held in escrow until the lesson is completed.</div>
+        </div>
+        <div class="card">
+          <h3><button class="faq-btn" aria-expanded="false" aria-controls="faq6" id="q6">When do instructors get paid?</button></h3>
+          <div id="faq6" role="region" aria-labelledby="q6" hidden>Payouts are released right after completed lessons to your method on file.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand" style="color:#e6ecf5"><svg aria-hidden="true" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#e6ecf5"/><text x="8" y="22" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="800" font-size="16" fill="#0b0f19">iL</text></svg> iLearn</div>
+        <p class="small" style="color:#b9c4d6">Learn Anything. Teach Everything.</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.4rem">
+          <li><a href="#browse">Browse</a></li>
+          <li><a href="#teach">Become a Tutor</a></li>
+          <li><a href="#faq">Help & FAQ</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </nav>
+      <div>
+        <label for="lang" class="small">Language</label>
+        <select id="lang" aria-label="Language selector">
+          <option>English</option>
+          <option>Español</option>
+          <option>Français</option>
+        </select>
+        <div style="margin-top:.6rem;display:flex;gap:.6rem" aria-label="Social links">
+          <a href="#" aria-label="Twitter"><svg width="22" height="22"><rect width="22" height="22" rx="6" fill="#e6ecf5"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="22" height="22"><rect width="22" height="22" rx="6" fill="#e6ecf5"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="22" height="22"><rect width="22" height="22" rx="6" fill="#e6ecf5"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="container" style="margin-top:1rem;border-top:1px solid rgba(230,234,240,.2);padding-top:1rem;color:#b9c4d6" aria-hidden="true">© <span id="year"></span> iLearn. All rights reserved.</div>
+  </footer>
+
+  <script defer>
+    "use strict";
+    // Minified-ish vanilla JS with accessible interactions
+    (function(){
+      const $$=s=>Array.from(document.querySelectorAll(s));
+      const $=s=>document.querySelector(s);
+      // Year
+      const y=$('#year'); if(y) y.textContent=String(new Date().getFullYear());
+      // Reveal on scroll (minimal, respects reduced motion via CSS)
+      const observer=('IntersectionObserver'in window)?new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target);}})},{threshold:.12}):null;
+      $$('.card,.step,.tutor-card').forEach(el=>{el.classList.add('reveal');observer&&observer.observe(el);});
+
+      // Tutor browse: search + chips filter + heart favorite
+      const grid=$('#tutorGrid'); const q=$('#q'); const clearBtn=$('#clearSearch');
+      const cards=$$('.tutor-card'); const chips=$$('.chip-filter');
+      const state={q:"",filters:new Set()};
+      function applyFilters(){
+        const text=state.q.trim().toLowerCase();
+        cards.forEach(card=>{
+          const name=(card.getAttribute('data-name')||"").toLowerCase();
+          const tags=(card.getAttribute('data-tags')||"").split(/\s+/);
+          const matchesText=!text||name.includes(text)||tags.some(t=>t.includes(text));
+          const matchesChips=state.filters.size===0||[...state.filters].every(f=>tags.includes(f));
+          card.style.display=(matchesText&&matchesChips)?"flex":"none";
+        });
+      }
+      if(q){
+        q.addEventListener('input',e=>{state.q=q.value;applyFilters();});
+        clearBtn?.addEventListener('click',()=>{q.value='';state.q='';applyFilters();q.focus();});
+      }
+      chips.forEach(chip=>{
+        chip.addEventListener('click',()=>{
+          const f=chip.getAttribute('data-filter');
+          const pressed=chip.getAttribute('aria-pressed')==='true';
+          chip.setAttribute('aria-pressed',String(!pressed));
+          chip.classList.toggle('active');
+          if(!pressed) state.filters.add(f); else state.filters.delete(f);
+          applyFilters();
+        });
+      });
+      $$('.heart').forEach(btn=>btn.addEventListener('click',()=>btn.classList.toggle('active')));
+
+      // Tabs (Book vs Demo)
+      const tabBook=$('#tab-book'), tabDemo=$('#tab-demo');
+      const panelBook=$('#panel-book'), panelDemo=$('#panel-demo');
+      function selectTab(which){
+        const isBook=which==='book';
+        tabBook?.setAttribute('aria-selected',String(isBook));
+        tabDemo?.setAttribute('aria-selected',String(!isBook));
+        panelBook?.toggleAttribute('hidden',!isBook);
+        panelDemo?.toggleAttribute('hidden',isBook);
+        (isBook?panelBook:panelDemo)?.querySelector('input,textarea,button')?.focus({preventScroll:true});
+      }
+      tabBook?.addEventListener('click',()=>selectTab('book'));
+      tabDemo?.addEventListener('click',()=>selectTab('demo'));
+      // Keyboard arrows
+      $('#tablist')?.addEventListener('keydown',e=>{
+        if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();
+          const next=e.key==='ArrowRight'?tabDemo:tabBook; next?.focus(); next?.click();}
+      });
+
+      // Calendar slots
+      const slots=$$('#slots .slot'); const slotInput=$('#slot-input');
+      slots.forEach(s=>s.addEventListener('click',()=>{
+        slots.forEach(x=>{x.classList.remove('selected'); x.setAttribute('aria-selected','false');});
+        s.classList.add('selected'); s.setAttribute('aria-selected','true'); if(slotInput) slotInput.value=s.textContent||'';
+      }));
+
+      // Forms success
+      function genMeet(){const id=Math.random().toString(36).slice(2,7)+'-'+Math.random().toString(36).slice(2,5)+'-'+Math.random().toString(36).slice(2,7);return 'https://meet.google.com/'+id;}
+      const success=$('#success');
+      function onSubmit(form,type){form.addEventListener('submit',e=>{e.preventDefault(); const link=genMeet(); if(success){success.innerHTML=`<strong>${type} confirmed.</strong> Join via <a href="${link}" target="_blank" rel="noopener">Google Meet</a>. Check your email for details.`; success.hidden=false; success.focus?.();}
+      });}
+      const fb=$('#form-book'), fd=$('#form-demo'); if(fb) onSubmit(fb,'Booking'); if(fd) onSubmit(fd,'Demo request');
+
+      // FAQ accordion (accessible)
+      $$('.faq-btn').forEach(btn=>{
+        const panelId=btn.getAttribute('aria-controls'); const panel=panelId?('#'+panelId):null; const el=panel?document.querySelector(panel):null;
+        btn.addEventListener('click',()=>{
+          const expanded=btn.getAttribute('aria-expanded')==='true';
+          btn.setAttribute('aria-expanded',String(!expanded)); if(el) el.hidden=expanded;
+        });
+        btn.addEventListener('keydown',e=>{if(e.key==='ArrowDown'){e.preventDefault(); btn.closest('.card')?.nextElementSibling?.querySelector('.faq-btn')?.focus();} if(e.key==='ArrowUp'){e.preventDefault(); btn.closest('.card')?.previousElementSibling?.querySelector('.faq-btn')?.focus();}});
+      });
+    })();
+  </script>
+</body>
+</html>
+
+
