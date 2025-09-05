@@ -123,6 +123,7 @@
         <a href="#browse">Browse Tutors</a>
         <a href="#teach">Become a Tutor</a>
         <a href="#faq" class="small">FAQ</a>
+        <a class="btn ghost" href="#signup" id="nav-signin">Sign In</a>
         <a class="btn secondary" href="#browse">Find a Tutor</a>
         <a class="btn" href="#teach">Start Teaching</a>
       </nav>
@@ -134,7 +135,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-grid">
         <div>
-          <h1 id="hero-title">You will get it. Learn any topic from passionated teachers</h1>
+          <h1 id="hero-title">You will get it.<br>Learn any topic from passionated teachers</h1>
           <p class="lead">iLearn is a demo‑first tutoring marketplace: You can Book instantly or try a 15‑minute demo, then learn on Google Meet with secure payments and verified reviews.</p>
           <div class="cta-row" role="group" aria-label="Primary actions">
             <a class="btn" href="#browse">Find a Tutor</a>
@@ -190,6 +191,46 @@
               </g>
             </svg>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signup / Sign In -->
+    <section class="feature alt" id="signup" aria-labelledby="signup-title">
+      <h2 id="signup-title">Join iLearn</h2>
+      <p class="muted">Create your free account as a Student or Teacher, or sign in.</p>
+      <div class="card">
+        <div role="tablist" aria-label="Auth options" class="tabs" id="auth-tabs">
+          <button role="tab" aria-selected="true" aria-controls="panel-student" id="tab-student" class="tab">Student</button>
+          <button role="tab" aria-selected="false" aria-controls="panel-teacher" id="tab-teacher" class="tab">Teacher</button>
+          <button role="tab" aria-selected="false" aria-controls="panel-signin" id="tab-signin" class="tab">Sign In</button>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr;gap:1rem;margin-top:1rem">
+          <div id="panel-student" role="tabpanel" aria-labelledby="tab-student">
+            <form id="form-student" novalidate>
+              <input type="text" name="name" placeholder="Full name" aria-label="Full name" required>
+              <input type="email" name="email" placeholder="Email" aria-label="Email" required>
+              <input type="password" name="password" placeholder="Password" aria-label="Password" required>
+              <button class="btn" type="submit">Create Student Account</button>
+            </form>
+          </div>
+          <div id="panel-teacher" role="tabpanel" aria-labelledby="tab-teacher" hidden>
+            <form id="form-teacher" novalidate>
+              <input type="text" name="name" placeholder="Full name" aria-label="Full name" required>
+              <input type="email" name="email" placeholder="Email" aria-label="Email" required>
+              <input type="password" name="password" placeholder="Password" aria-label="Password" required>
+              <input type="text" name="subject" placeholder="Primary subject" aria-label="Primary subject">
+              <button class="btn" type="submit">Create Teacher Account</button>
+            </form>
+          </div>
+          <div id="panel-signin" role="tabpanel" aria-labelledby="tab-signin" hidden>
+            <form id="form-signin" novalidate>
+              <input type="email" name="email" placeholder="Email" aria-label="Email" required>
+              <input type="password" name="password" placeholder="Password" aria-label="Password" required>
+              <button class="btn secondary" type="submit">Sign In</button>
+            </form>
+          </div>
+          <div id="auth-success" class="card" hidden aria-live="polite"></div>
         </div>
       </div>
     </section>
@@ -651,9 +692,34 @@
         });
         btn.addEventListener('keydown',e=>{if(e.key==='ArrowDown'){e.preventDefault(); btn.closest('.card')?.nextElementSibling?.querySelector('.faq-btn')?.focus();} if(e.key==='ArrowUp'){e.preventDefault(); btn.closest('.card')?.previousElementSibling?.querySelector('.faq-btn')?.focus();}});
       });
+
+      // Auth tabs (Student / Teacher / Sign In)
+      const tStudent=$('#tab-student'), tTeacher=$('#tab-teacher'), tSignin=$('#tab-signin');
+      const pStudent=$('#panel-student'), pTeacher=$('#panel-teacher'), pSignin=$('#panel-signin');
+      function selectAuth(which){
+        const map={student:[tStudent,pStudent],teacher:[tTeacher,pTeacher],signin:[tSignin,pSignin]};
+        Object.entries(map).forEach(([key,[tab,panel]])=>{
+          const on=key===which; tab?.setAttribute('aria-selected',String(on)); panel?.toggleAttribute('hidden',!on);
+        });
+        map[which]?.[1]?.querySelector('input,button')?.focus({preventScroll:true});
+      }
+      tStudent?.addEventListener('click',()=>selectAuth('student'));
+      tTeacher?.addEventListener('click',()=>selectAuth('teacher'));
+      tSignin?.addEventListener('click',()=>selectAuth('signin'));
+      $('#auth-tabs')?.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault(); const order=['student','teacher','signin']; const current=order.findIndex(k=>document.getElementById('tab-'+k)?.getAttribute('aria-selected')==='true'); const next= e.key==='ArrowRight'? (current+1)%order.length : (current-1+order.length)%order.length; selectAuth(order[next]); document.getElementById('tab-'+order[next])?.focus();}});
+      // Navbar Sign In click selects sign in tab
+      $('#nav-signin')?.addEventListener('click',()=>{setTimeout(()=>selectAuth('signin'),0);});
+      // Fake success messages
+      const authSuccess=$('#auth-success');
+      function submitMsg(form,msg){form?.addEventListener('submit',e=>{e.preventDefault(); if(authSuccess){authSuccess.innerHTML=`${msg}`; authSuccess.hidden=false; authSuccess.focus?.();}})}
+      submitMsg($('#form-student'),'Welcome to iLearn! Your student account has been created.');
+      submitMsg($('#form-teacher'),'Welcome aboard! Your teacher account is live.');
+      submitMsg($('#form-signin'),'Signed in. Redirecting to your dashboard...');
     })();
   </script>
 </body>
 </html>
+
+
 
 
